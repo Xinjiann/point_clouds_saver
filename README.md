@@ -49,16 +49,17 @@ rosrun kinect2_viewer saver sd
 ```
 To save a sequence of point clouds, press 'b' to start and 'e' to stop.
 <div  align="center">    
-<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/screenshot_terminal.png" width = "470" height = "330" align=center />
+<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/screenshot_terminal.png" width = "450" height = "300" align=center />
 </div>
 
 ## Hand segmentation
 
 ### PassThrough filter to remove background
 Filter out the points whose value is not in the given value range in the specified dimension direction.
-<figure class="half">
-<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/first_.png" width = "450"/><img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/second_.png" width = "450"/>
-</figure>
+
+<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/first_.png" width = "440" height = "255" align=center/>
+<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/second_.png" width = "440" height = "255" align=center/>
+
 
 ### statisticalOutlierRemoval to remove noise
 
@@ -66,7 +67,20 @@ Assuming that the average distance between all points in the point cloud and its
 
 First, traverse the point cloud and calculate the average distance between each point and its nearest k neighbors. Then calculate the mean μ and standard deviation σ of all average distances, the distance threshold dmax can be expressed as dmax=μ+α×σ, α is a constant, which depends on the number of neighbor points. Finally, traverse again Point cloud, remove the points whose average distance from k neighbor points is greater than dmax.
 
-### PassThrough filter again to remove body region
+### PassThrough filter to remove body region
 
-The noise points has been removed in the last step, so the closest point from camera shoud be the one in hand region, then apply PassThrough filter again with a smaller threshold to remove the body region.
-<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/third_.png" width = "450"/>
+The noise points has been removed in the last step, so the closest point from camera shoud be the one in hand region, then apply PassThrough filter again with a smaller threshold from the closest point to remove the body region.
+
+<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/third_.png" width = "440" height = "255" align=center/>
+
+### PassThrough filter to remove arm region
+Traverse the point cloud and find the point with largest y, and apply PassThrough filter to remove the arm region.
+<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/hand.png" width = "440" height = "255" align=center/>
+
+### VoxelGrid filter downsampling point cloud
+
+Use voxelized grid method to achieve downsampling. Reduce the number of points and save the shape characteristics of the point cloud at the same time. 
+
+PCL realised the VoxelGrid class by creating a three-dimensional voxel grid through the input point cloud data, and use the center of gravity of all points in each voxel to approximate other points in the voxel, so that all points in the voxel are finally expressed with a center of gravity.
+
+<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/final.png" width = "440" height = "255" align=center/>

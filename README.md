@@ -39,7 +39,7 @@ New terminal, run:
 ```git
 roslaunch kinect2_bridge kinect2_bridge
 ```
-If you want to use filter to segment hand region, run:
+If you want to segment the hand region, run:
 ```git
 rosrun kinect2_viewer saver sd filter
 ```

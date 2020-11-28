@@ -65,7 +65,11 @@ Filter out the points whose value is not in the given value range in the specifi
 
 Assuming that the average distance between all points in the point cloud and its nearest k neighbor points meets the Gaussian distribution, then a distance threshold can be determined according to the mean and variance. When the average distance between a point and its nearest k points is greater than this threshold, Determine the point as an outlier and remove it.
 
-First, traverse the point cloud and calculate the average distance between each point and its nearest k neighbors. Then calculate the mean μ and standard deviation σ of all average distances, the distance threshold dmax can be expressed as dmax=μ+α×σ, α is a constant, which depends on the number of neighbor points. Finally, traverse again Point cloud, remove the points whose average distance from k neighbor points is greater than dmax.
+First, traverse the point cloud and calculate the average distance between each point and its nearest k neighbors. Then calculate the mean μ and standard deviation σ of all average distances, the distance threshold dmax can be expressed as 
+
+dmax=μ+α×σ 
+
+Where α is a constant, which depends on the number of neighbor points. Finally, traverse again Point cloud, remove the points whose average distance from k neighbor points is greater than dmax.
 
 ### PassThrough filter to remove body region
 

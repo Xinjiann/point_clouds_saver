@@ -41,11 +41,11 @@ roslaunch kinect2_bridge kinect2_bridge
 ```
 If you want to segment the hand region, run:
 ```git
-rosrun point_clouds_saver saver sd filter
+rosrun kinect2_viewer saver sd filter
 ```
 Else, run:
 ```git
-rosrun point_clouds_saver saver sd
+rosrun kinect2_viewer saver sd
 ```
 To save a sequence of point clouds, press 'b' to start and 'e' to stop.
 

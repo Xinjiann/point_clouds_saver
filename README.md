@@ -25,8 +25,8 @@ A few assumptions have been made:
 Clone the project:
 ```git
 cd ~/catkin_ws/src/
-git clone https://github.com/Xinjiann/Point-clouds-saver.git
-cd iai_kinect2
+git clone https://github.com/Xinjiann/point_clouds_saver.git
+cd point_clouds_saver
 rosdep install -r --from-paths .
 cd ~/catkin_ws
 catkin_make -DCMAKE_BUILD_TYPE="Release"
@@ -41,11 +41,11 @@ roslaunch kinect2_bridge kinect2_bridge
 ```
 If you want to segment the hand region, run:
 ```git
-rosrun kinect2_viewer saver sd filter
+rosrun point_clouds_saver saver sd filter
 ```
 Else, run:
 ```git
-rosrun kinect2_viewer saver sd
+rosrun point_clouds_saver saver sd
 ```
 To save a sequence of point clouds, press 'b' to start and 'e' to stop.
 

@@ -49,7 +49,7 @@ rosrun kinect2_viewer saver sd
 ```
 To save a sequence of point clouds, press 'b' to start and 'e' to stop.
 <div  align="center">    
-<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/screenshot_terminal.png" width = "450" height = "300" align=center />
+<img src="https://github.com/Xinjiann/Point-clouds-saver/blob/main/img/screenshot_terminal.png" width = "450" height = "300" />
 </div>
 
 ## Hand segmentation

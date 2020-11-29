@@ -33,7 +33,7 @@ catkin_make -DCMAKE_BUILD_TYPE="Release"
 ```
 Run:
 ```git
-Roscore
+roscore
 ```
 New terminal, run:
 ```git

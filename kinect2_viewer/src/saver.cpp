@@ -298,6 +298,7 @@ private:
         }
         else{
           saveCloudAndImages(cloud);
+	  usleep(450);
         }
         
 
